@@ -48,6 +48,7 @@ perl -pi -e "s/^Defaults[\s|\t]+requiretty/#Defaults    requiretty/i"  /etc/sudo
 
 # selinux setup
 perl -pi -e "s/^SELINUX=.+/SELINUX=disabled/i" /etc/sysconfig/selinux
+perl -pi -e "s/^SELINUX=.+/SELINUX=disabled/i" /etc/selinux/config
 
 # iptables setup
 chkconfig iptables off
