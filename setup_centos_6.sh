@@ -27,7 +27,7 @@ echo "vagrant" | passwd vagrant --stdin
 # SSH setup
 mkdir /home/vagrant/.ssh
 chmod 700 /home/vagrant/.ssh
-curl -k -L -o authorized_keys https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub
+curl -k -L -o /home/vagrant/.ssh/authorized_keys https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub
 chmod 600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant:wheel /home/vagrant/.ssh
 
