@@ -2,4 +2,4 @@
 Box Setup for Vagrant
 
 ## CentOS 6
-curl -k -L -O https://github.com/backroot/vagrant_box_setup/blob/master/setup_centos_6.sh
+curl -k -L -O https://raw.githubusercontent.com/backroot/vagrant_box_setup/master/setup_centos_6.sh
