@@ -43,7 +43,7 @@ perl -pi -e "s/^#UseDNS\s+yes/#UseDNS yes\nUseDNS no/i" /etc/ssh/sshd_config
 service sshd restart
 
 # sudo setup
-perl -pi -e "s/#\s+%wheel[\s|\t]+ALL=\(ALL\)[\s|\t]NOPASSWD:[\s|\t]ALL/%wheel  ALL=(ALL)   NOPASSWD: ALL/i" /etc/sudoers
+perl -pi -e "s/#\s+%wheel[\s|\t]+ALL=\(ALL\)[\s|\t]+NOPASSWD:[\s|\t]+ALL/%wheel  ALL=(ALL)   NOPASSWD: ALL/i" /etc/sudoers
 
 # selinux setup
 perl -pi -e "s/^SELINUX=.+/SELINUX=disabled/i" /etc/sysconfig/selinux
