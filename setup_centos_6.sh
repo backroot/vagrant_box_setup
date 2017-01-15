@@ -35,4 +35,7 @@ chown -R vagrant:wheel /home/vagrant/.ssh
 perl -pi -e "s/^#UseDNS\s+yes/#UseDNS yes\nUseDNS no/i" /etc/ssh/sshd_config
 service sshd restart
 
+# sudo setup
+perl -pi -e "s/#\s+%wheel[\s|\t]+ALL=\(ALL\)[\s|\t]NOPASSWD:[\s|\t]ALL/%wheel  ALL=(ALL)   NOPASSWD: ALL/i" /etc/sudoers
+
 echo "Setup finished."
