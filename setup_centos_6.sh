@@ -17,7 +17,7 @@ ifconfig
 # Vagrant user create
 useradd -g wheel vagrant
 id vagrant
-echo "vagrant" | passwd --stdin
+echo "vagrant" | passwd vagrant --stdin
 
 
 
