@@ -38,4 +38,17 @@ service sshd restart
 # sudo setup
 perl -pi -e "s/#\s+%wheel[\s|\t]+ALL=\(ALL\)[\s|\t]NOPASSWD:[\s|\t]ALL/%wheel  ALL=(ALL)   NOPASSWD: ALL/i" /etc/sudoers
 
+# selinux setup
+perl -pi -e "s/^SELINUX=.+/SELINUX=disabled/i" /etc/sysconfig/selinux
+
+# iptables setup
+chkconfig iptables off
+chkconfig ip6tables off
+
+# yum setup
+yum -y install epel-release
+rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+
+
 echo "Setup finished."
