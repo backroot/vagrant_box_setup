@@ -44,6 +44,7 @@ service sshd restart
 
 # sudo setup
 perl -pi -e "s/#\s+%wheel[\s|\t]+ALL=\(ALL\)[\s|\t]+NOPASSWD:[\s|\t]+ALL/%wheel  ALL=(ALL)   NOPASSWD: ALL/i" /etc/sudoers
+perl -pi -e "s/^Defaults[\s|\t]+requiretty/#Defaults    requiretty/i"  /etc/sudoers
 
 # selinux setup
 perl -pi -e "s/^SELINUX=.+/SELINUX=disabled/i" /etc/sysconfig/selinux
