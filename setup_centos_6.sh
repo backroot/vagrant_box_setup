@@ -31,5 +31,8 @@ curl -k -L -o authorized_keys https://github.com/mitchellh/vagrant/blob/master/k
 chmod 600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant:wheel /home/vagrant/.ssh
 
+# SSHD speed up
+perl -pi -e "s/^#UseDNS\s+yes/#UseDNS yes\nUseDNS no/i" /etc/ssh/sshd_config
+service sshd restart
 
 echo "Setup finished."
