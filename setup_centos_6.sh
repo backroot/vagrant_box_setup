@@ -14,5 +14,12 @@ perl -pi -e "s/^ONBOOT=no/ONBOOT=yes/i" /etc/sysconfig/network-scripts/ifcfg-eth
 service network restart
 ifconfig
 
+# Vagrant user create
+useradd -g wheel vagrant
+id vagrant
+echo "vagrant" | passwd --stdin
+
+
+
 
 echo "Setup finished."
