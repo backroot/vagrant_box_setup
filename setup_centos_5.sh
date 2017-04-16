@@ -50,8 +50,11 @@ perl -pi -e "s/^#UseDNS\s+yes/#UseDNS yes\nUseDNS no/i" /etc/ssh/sshd_config
 service sshd restart
 
 # sudo setup
-perl -pi -e "s/#\s+%wheel[\s|\t]+ALL=\(ALL\)[\s|\t]+NOPASSWD:[\s|\t]+ALL/%wheel  ALL=(ALL)   NOPASSWD: ALL/i" /etc/sudoers
-perl -pi -e "s/^Defaults[\s|\t]+requiretty/#Defaults    requiretty/i"  /etc/sudoers
+SUDOERS=/etc/sudoers
+perl -pi -e "s/#\s+%wheel[\s|\t]+ALL=\(ALL\)[\s|\t]+NOPASSWD:[\s|\t]+ALL/%wheel  ALL=(ALL)   NOPASSWD: ALL/i" $SUDOERS
+perl -pi -e "s/^Defaults[\s|\t]+requiretty/#Defaults    requiretty/i" $SUDOERS
+echo "Defaults env_keep+=\"PATH\"" >> $SUDOERS
+echo "Defaults secure_path=/sbin:/bin:/usr/sbin:/usr/bin" >> $SUDOERS
 
 # selinux setup
 perl -pi -e "s/^SELINUX=.+/SELINUX=disabled/i" /etc/sysconfig/selinux
@@ -65,7 +68,9 @@ chkconfig ip6tables off
 yum clean all
 
 # Optimize box size
+set +e
 dd if=/dev/zero of=/EMPTY bs=1M
+set -e
 rm -f /EMPTY
 
 echo "Setup finished."
