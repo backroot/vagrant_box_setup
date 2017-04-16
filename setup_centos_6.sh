@@ -63,7 +63,9 @@ perl -pi -e "s/enabled=1/enabled=0/ig" /etc/yum.repos.d/remi-safe.repo
 yum clean all
 
 # Optimize box size
+set +e
 dd if=/dev/zero of=/EMPTY bs=1M
+set -e
 rm -f /EMPTY
 
 echo "Setup finished."
