@@ -6,3 +6,7 @@ curl -k -L -O https://raw.githubusercontent.com/backroot/vagrant_box_setup/maste
 
 ## CentOS 5
 curl -k -L -O https://raw.githubusercontent.com/backroot/vagrant_box_setup/master/setup_centos_5.sh
+
+## Vagrant Packaging
+vagrant package --base <VirtualMachine Name> --output <BoxFileName>
+
