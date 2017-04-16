@@ -10,7 +10,7 @@ cat /etc/redhat-release
 
 # yum setup
 REPO_CENTOS=/etc/yum.repos.d/CentOS-Base.repo
-OSVER=`perl -ane "print \$F[2]" /etc/redhat-release`
+OSVER=`perl -ane "print \\\$F[2]" /etc/redhat-release`
 perl -pi -e "s/mirror\.centos\.org\/centos\/\\\$releasever\//vault.centos.org\/${OSVER}\//i" $REPO_CENTOS
 perl -pi -e "s/^#baseurl=(.*)/baseurl=\$1/i" $REPO_CENTOS
 perl -pi -e "s/^mirrorlist=(.*)/#mirrorlist=\$1/i" $REPO_CENTOS
