@@ -10,7 +10,7 @@ cat /etc/redhat-release
 
 # yum setup
 REPO_CENTOS=/etc/yum.repos.d/CentOS-Base.repo
-perl -pi -e "s/mirror\.centos\.org\/centos\//vault\.centos\.org\/5.11\//i" $REPO_CENTOS
+perl -pi -e "s/mirror\.centos\.org\/centos\/\$releasever\//vault\.centos\.org\/5.11\//i" $REPO_CENTOS
 perl -pi -e "s/^#baseurl=(.*)/baseurl=\$1/i" $REPO_CENTOS
 perl -pi -e "s/^mirrorlist=(.*)/#mirrorlist=\$1/i" $REPO_CENTOS
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
